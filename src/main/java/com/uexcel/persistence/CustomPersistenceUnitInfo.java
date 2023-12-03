@@ -37,33 +37,30 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         HikariDataSource datasource = new HikariDataSource();
         datasource.setJdbcUrl("jdbc:mariadb://localhost:3306/hibernate_demo");
         datasource.setUsername("root");
-        datasource.setPassword("jvman16");
-        datasource.setDataSourceClassName("org.mariadb.jdbc.Driver");
+        datasource.setPassword("jvman19");
+        datasource.setDriverClassName("org.mariadb.jdbc.Driver");
         return datasource;
     }
 
     @Override
     public DataSource getNonJtaDataSource() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNonJtaDataSource'");
+        return null;
     }
 
     @Override
     public List<String> getMappingFileNames() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getMappingFileNames'");
+        return null;
     }
 
     @Override
     public List<URL> getJarFileUrls() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getJarFileUrls'");
+        return null;
+
     }
 
     @Override
     public URL getPersistenceUnitRootUrl() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPersistenceUnitRootUrl'");
+        return null;
     }
 
     @Override
@@ -73,38 +70,42 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public boolean excludeUnlistedClasses() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excludeUnlistedClasses'");
+        return false;
     }
 
     @Override
     public SharedCacheMode getSharedCacheMode() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSharedCacheMode'");
+        return null;
     }
 
     @Override
     public ValidationMode getValidationMode() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getValidationMode'");
+        return null;
     }
 
     @Override
     public Properties getProperties() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProperties'");
+        Properties p = new Properties();
+        // p.setProperty("jakarta.persistence.jdbc.driver", "org.mariadb.jdbc.Driver");
+        // p.setProperty(
+        // "jakarta.persistence.jdbc.url",
+        // "jdbc:mariadb://localhost:3306/hibernate_demo");
+        // p.setProperty("jakarta.persistence.jdbc.user", "root");
+        // p.setProperty("jakarta.persistence.jdbc.password", "jvman19");
+
+        p.setProperty("hibernate.show_sql", "true");
+        p.setProperty("hibernate.format_sql", "true");
+        return p;
     }
 
     @Override
     public String getPersistenceXMLSchemaVersion() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPersistenceXMLSchemaVersion'");
+        return null;
     }
 
     @Override
     public ClassLoader getClassLoader() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClassLoader'");
+        return null;
     }
 
     @Override
@@ -115,8 +116,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public ClassLoader getNewTempClassLoader() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNewTempClassLoader'");
+        return null;
     }
 
 }

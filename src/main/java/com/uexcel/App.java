@@ -1,6 +1,5 @@
 package com.uexcel;
 
-import org.hibernate.Hibernate;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 
 import com.uexcel.entity.Product;
@@ -8,14 +7,17 @@ import com.uexcel.persistence.CustomPersistenceUnitInfo;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+// import jakarta.persistence.Persistence;
 
 import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
 
-        // EntityManagerFactory enf =
+        // EntityManagerFactory entityManagerFactory =
         // Persistence.createEntityManagerFactory("my-persistence-unit");
+
+        // I PREFERE XML METHOD
 
         EntityManagerFactory entityManagerFactory = new HibernatePersistenceProvider()
                 .createContainerEntityManagerFactory(
@@ -26,7 +28,7 @@ public class App {
 
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(new Product(2L, "Coca-Cola"));
+            entityManager.persist(new Product(4L, "Chocolate"));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
 
